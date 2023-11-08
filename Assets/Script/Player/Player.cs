@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     Joystik_Control joystick;
 
-    void Update()
+    void FixedUpdate()
     {
         if (joystick.speed > 0.0f)
         {
@@ -28,9 +28,5 @@ public class Player : MonoBehaviour
             
         }
     }
-
-    private void FixedUpdate()
-    {
-        
-    }
+    
 }

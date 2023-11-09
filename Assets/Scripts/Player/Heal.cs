@@ -18,9 +18,6 @@ public class Heal : MonoBehaviour
     {
         Enemy = GameObject.FindGameObjectWithTag("Enemy");
         LightObject = GameObject.FindGameObjectWithTag("LightObject");
-        
-
-
     }
     
     void FixedUpdate()
@@ -34,7 +31,7 @@ public class Heal : MonoBehaviour
         {
             string currentScene = SceneManager.GetActiveScene ().name;
             SceneManager.LoadScene(currentScene);
-            health = health + 60;
+            health += 60;
         }
         
     }

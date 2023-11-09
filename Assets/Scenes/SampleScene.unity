@@ -185,7 +185,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.051666666
+  m_FillAmount: 1
   m_FillClockwise: 0
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -396,7 +396,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c2a5b9c890b445a93c972982ece6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 6048678192282345959, guid: 44be8321c9781f444bbddf9f3b2d70d5, type: 3}
+  max: 1
+  enemies:
+  - {fileID: 6048678192282345959, guid: 44be8321c9781f444bbddf9f3b2d70d5, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,7 +436,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -536,6 +538,7 @@ GameObject:
   - component: {fileID: 723109917}
   - component: {fileID: 723109916}
   - component: {fileID: 723109918}
+  - component: {fileID: 723109919}
   m_Layer: 0
   m_Name: Light_Health
   m_TagString: LightObject
@@ -575,9 +578,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.9903412, y: 0.18852329}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.3048348
+  m_Radius: 2.5
 --- !u!4 &723109917
 Transform:
   m_ObjectHideFlags: 0
@@ -621,6 +624,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &723109919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723109915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c21e95c38218442b9716274570b0e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 723109916}
+  HealPerSec: 10
+  _maxHeal: 50
+  _currentHeal: 50
 --- !u!1 &1187455783
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +755,6 @@ GameObject:
   - component: {fileID: 1289716936}
   - component: {fileID: 1289716935}
   - component: {fileID: 1289716934}
-  - component: {fileID: 1289716933}
   m_Layer: 5
   m_Name: HealBar
   m_TagString: Untagged
@@ -764,19 +782,6 @@ RectTransform:
   m_AnchoredPosition: {x: 938.58, y: 508.11}
   m_SizeDelta: {x: 618.03, y: 153.78}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1289716933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1289716931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7ab3cae7c9e924fa1c30892bb10930, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1289716934}
 --- !u!114 &1289716934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,9 +827,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 60
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 3.1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -892,7 +897,7 @@ Transform:
   m_GameObject: {fileID: 1304581089}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.83, y: 0.25, z: 0.0000000074506}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.1944125, y: 1.1326, z: 1.1326}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1427,6 +1432,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c679f18bf1a19c4998e9761336dcbb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Health>k__BackingField: 70
+  <MaxHealth>k__BackingField: 100
+  anim: {fileID: 2049934783}
+  healthSlider: {fileID: 1289716934}
   joystick: {fileID: 78178413}
 --- !u!212 &2049934781
 SpriteRenderer:

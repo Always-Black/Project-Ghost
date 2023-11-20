@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Heal : MonoBehaviour
 {
@@ -22,11 +17,6 @@ public class Heal : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (here == false)
-        {
-            health -= Time.deltaTime;
-        }
-
         if (health < 0)
         {
             string currentScene = SceneManager.GetActiveScene ().name;
@@ -46,7 +36,7 @@ public class Heal : MonoBehaviour
             {
                 if(health < 60)
                 {
-                    health = health += Time.deltaTime * 100;
+                    health += Time.deltaTime * 100;
                 }
             }
         }   
@@ -57,7 +47,7 @@ public class Heal : MonoBehaviour
     {
         if(other.gameObject.name == LightObject.name)
         {
-            here = here == false;
+             here = false;
         }
     }
 }

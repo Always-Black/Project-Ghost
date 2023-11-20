@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Potion
   - LightObject
+  - Money
+  - Delusion
+  - Light
   layers:
   - Default
   - TransparentFX

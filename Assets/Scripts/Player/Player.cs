@@ -28,13 +28,15 @@ public class Player : MonoBehaviour, IDamagable
         healthSlider.value = Health;
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        
         if (joystick.speed > 0.0f)
         {
             Vector2 direction = joystick.direction;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.Translate(direction * speed * joystick.speed * Time.deltaTime, Space.World);
+            
         }
     }
     public void ReceiveDamage(float damage)

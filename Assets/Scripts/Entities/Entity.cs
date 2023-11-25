@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using Droppables;
 using UnityEngine;
 
 namespace Entities
@@ -11,6 +11,9 @@ namespace Entities
         
         [Header("Health")] public float Health = 1;
         public float MaxHealth = 1;
+        
+        [Header("Loot")] public List<GameObject> Droppables = new ();
+        
         public bool IsFullHealth => Health >= MaxHealth;
         
         private readonly List<Entity> _collidingEntities = new ();
@@ -74,6 +77,14 @@ namespace Entities
         
         protected virtual void HandleDeath()
         {
+            foreach (GameObject droppable in Droppables)
+            {
+                if (droppable.TryGetComponent(out Droppable dr))
+                {
+                    dr.Drop(transform.position);
+                }
+            }
+            
             Destroy(gameObject);
         }
         
@@ -89,6 +100,8 @@ namespace Entities
                 AttackEntity(_collidingEntities[i]);
             }
         }
+
+        public virtual void OnDropCollected(Droppable droppable) { }
 
         private void OnCollisionEnter2D(Collision2D other)
         {

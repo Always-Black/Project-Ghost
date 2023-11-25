@@ -1,3 +1,4 @@
+using Droppables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,6 +13,8 @@ namespace Entities.Player
 
         [SerializeField] private Slider HealthSlider;
         [SerializeField] private JoystickControl Joystick;
+        
+        public InventoryBase Inventory = new ();
 
 
         private void Awake()
@@ -30,7 +33,13 @@ namespace Entities.Player
                 transform.Translate(translateDirection, Space.World);
             }
         }
-        
+
+        public override void OnDropCollected(Droppable droppable)
+        {
+            base.OnDropCollected(droppable);
+            Inventory.AddItem(droppable.Type);
+        }
+
         public override void SetHealth(float health)
         {
             base.SetHealth(health);

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8568349324123739504}
   - component: {fileID: 6332764313561207617}
   m_Layer: 0
-  m_Name: 9-Sliced (3)
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,9 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703ff7de51c81464a80c7ef8834dc877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: []
-  health_player: 0
-  health: 20
-  delusion: {fileID: 2958321714809037278, guid: d1b622e1fcf43214994b2d0602470d56, type: 3}
-  light: {fileID: 7350909642462124770, guid: 00b109fca9a62e4409e3dba8d91e445b, type: 3}
-  money: {fileID: 4816002765144004794, guid: 3edbbd72bf2ebec41b267fc1a10e29d5, type: 3}
+  Damage: 5
+  AttackSpeed: 1
+  Health: 100
+  MaxHealth: 100
+  speed: 5

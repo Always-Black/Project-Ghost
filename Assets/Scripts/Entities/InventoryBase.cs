@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Droppables;
+using Resources;
 using UnityEngine;
 
 namespace Entities
@@ -8,47 +8,47 @@ namespace Entities
     [Serializable]
     public class InventoryBase
     {
-        public Dictionary<DroppableType, int> Items { get; } = new ();
+        public Dictionary<ResourceType, int> Items { get; } = new ();
 
         public InventoryBase()
         {
-            foreach (DroppableType droppableType in (DroppableType[]) Enum.GetValues(typeof(DroppableType)))
+            foreach (ResourceType droppableType in (ResourceType[]) Enum.GetValues(typeof(ResourceType)))
             {
                 Items.Add(droppableType, 0);
             }
         }
         
-        public void AddItem(DroppableType droppableType)
+        public void AddItem(ResourceType resourceType)
         {
-            Items[droppableType]++;
+            Items[resourceType]++;
         }
         
-        public void AddItems(DroppableType droppableType, int amount)
+        public void AddItems(ResourceType resourceType, int amount)
         {
-            Items[droppableType] += amount;
+            Items[resourceType] += amount;
         }
         
-        public void AddItems(List<DroppableType> droppableTypes)
+        public void AddItems(List<ResourceType> droppableTypes)
         {
-            foreach (DroppableType droppableType in droppableTypes)
+            foreach (ResourceType droppableType in droppableTypes)
             {
                 Items[droppableType]++;
             }
         }
         
-        public void RemoveItem(DroppableType droppableType)
+        public void RemoveItem(ResourceType resourceType)
         {
-            Items[droppableType] = Mathf.Max(0, Items[droppableType] - 1);
+            Items[resourceType] = Mathf.Max(0, Items[resourceType] - 1);
         }
         
-        public void RemoveItems(DroppableType droppableType, int amount)
+        public void RemoveItems(ResourceType resourceType, int amount)
         {
-            Items[droppableType] = Mathf.Max(0, Items[droppableType] - amount);
+            Items[resourceType] = Mathf.Max(0, Items[resourceType] - amount);
         }
         
-        public void RemoveItems(List<DroppableType> droppableTypes)
+        public void RemoveItems(List<ResourceType> droppableTypes)
         {
-            foreach (DroppableType droppableType in droppableTypes)
+            foreach (ResourceType droppableType in droppableTypes)
             {
                 Items[droppableType] = Mathf.Max(0, Items[droppableType] - 1);
             }

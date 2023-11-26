@@ -1,15 +1,13 @@
-using System;
 using Entities;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-namespace Droppables
+namespace Resources
 {
     public class Droppable : MonoBehaviour
     {
         [SerializeField] private AudioClip CollectSound;
         
-        public DroppableType Type;
+        public ResourceType Type;
         
         [Space(10)]
         public Vector2 DistributeRange = Vector2.one;
@@ -32,7 +30,7 @@ namespace Droppables
             }
         }
 
-        private void Collect(Entity collector)
+        public void Collect(Entity collector)
         {
             collector.OnDropCollected(this);
             PlayCollectSound();

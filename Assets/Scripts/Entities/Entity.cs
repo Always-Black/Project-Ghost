@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Droppables;
+using Resources;
 using UnityEngine;
 
 namespace Entities

@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e2c1f097-3a7e-4bfe-b5f0-6599505ed443" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Ghost/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Ghost/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Droppables.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Resources.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Droppables/Droppable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Resources/Droppable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Droppables/Droppable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Resources/Droppable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Droppables/DroppableType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Resources/ResourceType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Droppables/DroppableType.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Resources/ResourceType.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/InventoryBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/InventoryBase.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +45,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CodeLensConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -117,7 +111,9 @@
       <workItem from="1700912125853" duration="6525000" />
       <workItem from="1700923416210" duration="5080000" />
       <workItem from="1700938668079" duration="6854000" />
-      <workItem from="1701010748584" duration="340000" />
+      <workItem from="1701010748584" duration="723000" />
+      <workItem from="1701011482935" duration="7764000" />
+      <workItem from="1701031770586" duration="306000" />
     </task>
     <task id="LOCAL-00001" summary="Major code revision of multiple systems">
       <option name="closed" value="true" />
@@ -135,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700945485424</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Slight naming refactoring">
+      <option name="closed" value="true" />
+      <created>1701011339336</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701011339336</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,7 +163,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Major code revision of multiple systems" />
     <MESSAGE value="Implemented droppable objects, with collection logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented droppable objects, with collection logic" />
+    <MESSAGE value="Slight naming refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slight naming refactoring" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

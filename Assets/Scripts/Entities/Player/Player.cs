@@ -25,12 +25,12 @@ namespace Entities.Player
             HealthSlider.value = Health;
         }
 
-        private void FixedUpdate()
+        protected override void OnUpdate()
         {
-            if (Joystick.speed > 0.0f)
+            if (Joystick.IsTouching)
             {
-                Vector2 translateDirection = Joystick.direction * (Speed * Joystick.speed * Time.fixedDeltaTime);
-                transform.Translate(translateDirection, Space.World);
+                Vector3 translateDirection = new (Joystick.Horizontal(), Joystick.Vertical());
+                transform.Translate(translateDirection * (Speed * Time.deltaTime), Space.World);
             }
         }
 
@@ -49,9 +49,6 @@ namespace Entities.Player
 
         protected override void HandleDeath()
         {
-            base.HandleDeath();
-            
-            Health += 60;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

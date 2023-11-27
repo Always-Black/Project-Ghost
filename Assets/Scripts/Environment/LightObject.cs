@@ -10,6 +10,7 @@ namespace Environment
         [field: SerializeField, Range(1f, 100f)] public float Health { get; set; }
         [field: SerializeField] public float TransferTime { get; set; }
     
+        private float _initialHealth;
         private float _initialLightRadius = 10f;
         private float _currentTransferTime;
     
@@ -26,6 +27,7 @@ namespace Environment
 
             _circleCollider.radius = Mathf.Max(_light.range, 0.1f) * 0.5f;
             _initialLightRadius = _light.range;
+            _initialHealth = Health;
         }
     
         private void Update()
@@ -52,8 +54,10 @@ namespace Environment
                 _circleCollider.radius = Mathf.Max(_circleCollider.radius - deltaRadius / 2f, 0.5f);
             
                 _currentTransferTime += Time.deltaTime;
-            
-                return deltaRadius / _initialLightRadius * Health;
+
+                float healthAmount = deltaRadius / _initialLightRadius * _initialHealth;
+                Health -= healthAmount;
+                return healthAmount;
             }
 
             Destroy(gameObject);

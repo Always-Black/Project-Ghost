@@ -11,7 +11,7 @@ namespace Entities.Player
         
         [SerializeField] private float Speed = 14.0f;
 
-        [SerializeField] private Slider HealthSlider;
+        [SerializeField] private StatusBarComponent StatusBar;
         [SerializeField] private JoystickControl Joystick;
         
         public InventoryBase Inventory = new ();
@@ -22,15 +22,16 @@ namespace Entities.Player
             if (Instance == null) Instance = this;
             else Destroy(gameObject);
             
-            HealthSlider.value = Health;
+            StatusBar.Setup(Health, Inventory.GetItemCount(ResourceType.Delusion),
+                Inventory.GetItemCount(ResourceType.Money));
         }
 
-        private void FixedUpdate()
+        protected override void OnUpdate()
         {
-            if (Joystick.speed > 0.0f)
+            if (Joystick.IsTouching)
             {
-                Vector2 translateDirection = Joystick.direction * (Speed * Joystick.speed * Time.fixedDeltaTime);
-                transform.Translate(translateDirection, Space.World);
+                Vector3 translateDirection = new (Joystick.Horizontal(), Joystick.Vertical());
+                transform.Translate(translateDirection * (Speed * Time.deltaTime), Space.World);
             }
         }
 
@@ -38,20 +39,17 @@ namespace Entities.Player
         {
             base.OnDropCollected(droppable);
             Inventory.AddItem(droppable.Type);
+            StatusBar.SetResource(droppable.Type, Inventory.GetItemCount(droppable.Type));
         }
 
         public override void SetHealth(float health)
         {
             base.SetHealth(health);
-            
-            HealthSlider.value = Health;
+            StatusBar.SetHealth(Health);
         }
 
         protected override void HandleDeath()
         {
-            base.HandleDeath();
-            
-            Health += 60;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

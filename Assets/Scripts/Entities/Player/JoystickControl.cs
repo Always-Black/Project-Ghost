@@ -1,72 +1,49 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace Entities.Player
 {
     public class JoystickControl : MonoBehaviour
     {
-        // TODO: Make major refactor of this class
+        [SerializeField] private RectTransform JoystickHandle;
+        [SerializeField] private RectTransform JoystickBackground;
         
-        Image image;
-        RectTransform rectTransform;
-    
-        Vector2 DefautPosition = Vector2.zero; 
-        Vector2 pos = Vector2.zero;
+        public float Speed { get; private set; }
+        public Vector2 Direction { get; private set; } = Vector2.zero;
+        public bool IsTouching { get; private set; }
 
-        [SerializeField] 
-        Sprite activeSprite;
+        private float _joystickRadius;
+        private Vector2 _defaultPos;
+        
+        public float Vertical() => Direction.y * Speed;
+        public float Horizontal() => Direction.x * Speed;
 
-        [SerializeField] 
-        Sprite idleSprite;
-    
-        [HideInInspector]
-        public float speed;
-        [HideInInspector]
-        public Vector2 direction = Vector2.zero;
-
-        void Start()
+        
+        private void Start()
         {
-            rectTransform = GetComponent<RectTransform>();
-            image = GetComponent<Image>();
+            _joystickRadius = JoystickBackground.sizeDelta.x * 0.5f;
         }
 
         public void OnPointerDown(BaseEventData data)
         {
-            PointerEventData pntr = (PointerEventData) data;
-            DefautPosition = pntr.position;
-            image.sprite = activeSprite;
+            IsTouching = true;
+            _defaultPos = ((PointerEventData) data).position;
         }
 
-        private float maxAllowedSize = 100.0f;
         public void OnDrag(BaseEventData data)
         {
-            PointerEventData pntr = (PointerEventData)data;
-            pos = pntr.position - DefautPosition;
-            float size = pos.magnitude;
-            if (size > maxAllowedSize)
-            {
-                speed = 1.5f;
-                pos = pos / size * maxAllowedSize;
-            }
-            else
-            {
-                speed = size / maxAllowedSize;
-                direction = pos / size;
-                rectTransform.anchoredPosition = pos;
-            }
-
-
-            direction = pos / size;
-            rectTransform.anchoredPosition = pos;
+            Vector2 touchPos = ((PointerEventData) data).position;
+            Direction = (touchPos - _defaultPos).normalized;
+            Speed = Mathf.Clamp(Vector2.Distance(_defaultPos, touchPos) / _joystickRadius, 0.0f, 1.0f);
+            JoystickHandle.anchoredPosition = Direction * _joystickRadius * Speed;
         }
 
         public void OnPointerUp(BaseEventData data)
         {
-            speed = 0.0f;
-            direction = Vector2.zero;
-            rectTransform.anchoredPosition = Vector2.zero;
-            image.sprite = idleSprite;
+            IsTouching = false;
+            Speed = 0.0f;
+            Direction = Vector2.zero;
+            JoystickHandle.anchoredPosition = Vector2.zero;
         }
     }
 }

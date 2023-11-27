@@ -177,4 +177,5 @@ MonoBehaviour:
   MaxHealth: 100
   Droppables:
   - {fileID: 2958321714809037278, guid: d1b622e1fcf43214994b2d0602470d56, type: 3}
+  - {fileID: 4816002765144004794, guid: 3edbbd72bf2ebec41b267fc1a10e29d5, type: 3}
   Speed: 5

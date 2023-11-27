@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c1f097-3a7e-4bfe-b5f0-6599505ed443" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Ghost/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Ghost/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/JoystickControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/JoystickControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/Player.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e2c1f097-3a7e-4bfe-b5f0-6599505ed443" name="Changes" comment="Joystick control code refactoring" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,6 +114,7 @@
       <workItem from="1701010748584" duration="723000" />
       <workItem from="1701011482935" duration="7764000" />
       <workItem from="1701031770586" duration="306000" />
+      <workItem from="1701103383480" duration="304000" />
     </task>
     <task id="LOCAL-00001" summary="Major code revision of multiple systems">
       <option name="closed" value="true" />
@@ -143,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701011339336</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Joystick control code refactoring">
+      <option name="closed" value="true" />
+      <created>1701103679323</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701103679323</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +184,8 @@
     <MESSAGE value="Major code revision of multiple systems" />
     <MESSAGE value="Implemented droppable objects, with collection logic" />
     <MESSAGE value="Slight naming refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Slight naming refactoring" />
+    <MESSAGE value="Joystick control code refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Joystick control code refactoring" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

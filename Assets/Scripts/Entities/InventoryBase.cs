@@ -53,5 +53,18 @@ namespace Entities
                 Items[droppableType] = Mathf.Max(0, Items[droppableType] - 1);
             }
         }
+        
+        public int GetItemCount(ResourceType resourceType)
+        {
+            return Items[resourceType];
+        }
+        
+        public void Clear()
+        {
+            foreach (ResourceType droppableType in (ResourceType[]) Enum.GetValues(typeof(ResourceType)))
+            {
+                Items[droppableType] = 0;
+            }
+        }
     }
 }

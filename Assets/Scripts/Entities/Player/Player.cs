@@ -11,7 +11,7 @@ namespace Entities.Player
         
         [SerializeField] private float Speed = 14.0f;
 
-        [SerializeField] private Slider HealthSlider;
+        [SerializeField] private StatusBarComponent StatusBar;
         [SerializeField] private JoystickControl Joystick;
         
         public InventoryBase Inventory = new ();
@@ -22,7 +22,8 @@ namespace Entities.Player
             if (Instance == null) Instance = this;
             else Destroy(gameObject);
             
-            HealthSlider.value = Health;
+            StatusBar.Setup(Health, Inventory.GetItemCount(ResourceType.Delusion),
+                Inventory.GetItemCount(ResourceType.Money));
         }
 
         protected override void OnUpdate()
@@ -38,13 +39,13 @@ namespace Entities.Player
         {
             base.OnDropCollected(droppable);
             Inventory.AddItem(droppable.Type);
+            StatusBar.SetResource(droppable.Type, Inventory.GetItemCount(droppable.Type));
         }
 
         public override void SetHealth(float health)
         {
             base.SetHealth(health);
-            
-            HealthSlider.value = Health;
+            StatusBar.SetHealth(Health);
         }
 
         protected override void HandleDeath()

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Entities;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Environment
 {
@@ -14,7 +15,7 @@ namespace Environment
         private float _initialLightRadius = 10f;
         private float _currentTransferTime;
     
-        private Light _light;
+        private Light2D _light;
         private CircleCollider2D _circleCollider;
     
         private readonly List<Entity> _collidingEntities = new ();
@@ -22,12 +23,12 @@ namespace Environment
     
         private void Awake()
         {
-            _light = GetComponentInChildren<Light>();
+            _light = GetComponentInChildren<Light2D>();
             _circleCollider = GetComponentInChildren<CircleCollider2D>();
 
-            _circleCollider.radius = Mathf.Max(_light.range, 0.1f) * 0.5f;
-            _initialLightRadius = _light.range;
+            _initialLightRadius = _light.pointLightOuterRadius;
             _initialHealth = Health;
+            _circleCollider.radius = Mathf.Max(_initialLightRadius, 0.1f) * 0.5f;
         }
     
         private void Update()
@@ -50,7 +51,7 @@ namespace Environment
             {
                 float deltaRadius = _initialLightRadius / TransferTime * Time.deltaTime;
                 
-                _light.range = Mathf.Max(_light.range - deltaRadius, 0.25f);
+                _light.pointLightOuterRadius = Mathf.Max(_light.pointLightOuterRadius - deltaRadius, 0.25f);
                 _circleCollider.radius = Mathf.Max(_circleCollider.radius - deltaRadius / 2f, 0.5f);
             
                 _currentTransferTime += Time.deltaTime;

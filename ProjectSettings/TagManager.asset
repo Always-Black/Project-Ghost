@@ -10,6 +10,7 @@ TagManager:
   - Money
   - Delusion
   - Light
+  - Delusian
   layers:
   - Default
   - TransparentFX
@@ -44,12 +45,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: ui
-    uniqueID: 99235263
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: ground
+  - name: Ground
     uniqueID: 2274426803
+    locked: 0
+  - name: Loot
+    uniqueID: 3413763137
+    locked: 0
+  - name: Entity
+    uniqueID: 84158405
+    locked: 0
+  - name: Obstacle
+    uniqueID: 1673867853
+    locked: 0
+  - name: Foreground
+    uniqueID: 592029307
+    locked: 0
+  - name: UI
+    uniqueID: 99235263
     locked: 0

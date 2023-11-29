@@ -107,8 +107,7 @@ namespace Entities
             
             Vector2 direction = attacker.transform.position - transform.position;
             direction.Normalize();
-
-            Rigidbody.AddForce(-direction * KnockbackForce, ForceMode2D.Impulse);
+            
             attacker.Rigidbody.AddForce(direction * KnockbackForce, ForceMode2D.Impulse);
         }
         

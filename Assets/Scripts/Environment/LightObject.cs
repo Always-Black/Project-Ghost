@@ -65,7 +65,7 @@ namespace Environment
             return 0;
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.TryGetComponent(out Entity entity)
                 && !_collidingEntities.Contains(entity))
@@ -74,7 +74,7 @@ namespace Environment
             }
         }
     
-        private void OnCollisionExit2D(Collision2D other)
+        private void OnTriggerExit2D(Collider2D other)
         {
             if (other.gameObject.TryGetComponent(out Entity entity)
                 && _collidingEntities.Contains(entity))

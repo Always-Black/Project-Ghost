@@ -4,21 +4,34 @@ using UnityEngine;
 
 namespace Entities
 {
+    [RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(Collider2D))]
     public abstract class Entity : MonoBehaviour
     {
-        [Header("Attack")] public float Damage = 1;
-        public float AttackSpeed = 1;
+        [Header("Attack"), Min(0)] public float Damage = 1;
+        [Tooltip("Attack speed in seconds"), Min(0)] public float AttackSpeed = 1;
+        [Tooltip("Knockback strength"), Min(0)] public float KnockbackForce = 25;
         
-        [Header("Health")] public float Health = 1;
-        public float MaxHealth = 1;
+        [Header("Health"), Min(0)] public float Health = 1;
+        [Min(0)] public float MaxHealth = 1;
+        
+        [Header("Movement"), Min(0)] public float Speed = 8.0f;
         
         [Header("Loot")] public List<GameObject> Droppables = new ();
         
+        public Rigidbody2D Rigidbody { get; private set; }
+        
         public bool IsFullHealth => Health >= MaxHealth;
+        public bool IsAlive => Health > 0.0f;
         
         private readonly List<Entity> _collidingEntities = new ();
         private float _attackCooldown;
         
+        
+        private void Awake()
+        {
+            Rigidbody = GetComponent<Rigidbody2D>();
+            OnAwake();
+        }
         
         private void Update()
         {
@@ -26,6 +39,8 @@ namespace Entities
             OnUpdate();
         }
 
+        protected virtual void OnAwake() { }
+        
         protected virtual void OnUpdate() { }
 
         private void HandleAttackCooldown()
@@ -45,8 +60,6 @@ namespace Entities
                 _attackCooldown = 0.0f;
             }
         }
-
-        public bool IsAlive => Health > 0.0f;
         
         public virtual void SetHealth(float health)
         {
@@ -87,10 +100,21 @@ namespace Entities
             
             Destroy(gameObject);
         }
+
+        protected virtual void HandleAttacked(Entity attacker)
+        {
+            AdjustHealth(-attacker.Damage);
+            
+            Vector2 direction = attacker.transform.position - transform.position;
+            direction.Normalize();
+
+            Rigidbody.AddForce(-direction * KnockbackForce, ForceMode2D.Impulse);
+            attacker.Rigidbody.AddForce(direction * KnockbackForce, ForceMode2D.Impulse);
+        }
         
         private void AttackEntity(Entity entity)
         {
-            entity.AdjustHealth(-Damage);
+            entity.HandleAttacked(this);
         }
 
         private void AttackAllEntities()

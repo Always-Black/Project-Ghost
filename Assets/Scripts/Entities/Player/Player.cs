@@ -1,7 +1,8 @@
+using System;
+using Entities.Player.UserInterface;
 using Resources;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Entities.Player
 {
@@ -9,15 +10,14 @@ namespace Entities.Player
     {
         public static Player Instance { get; private set; }
         
-        [SerializeField] private float Speed = 14.0f;
-
+        public DialogManager DialogHandler;
+        public InventoryBase Inventory = new ();
+        
         [SerializeField] private StatusBarComponent StatusBar;
         [SerializeField] private JoystickControl Joystick;
         
-        public InventoryBase Inventory = new ();
 
-
-        private void Awake()
+        protected override void OnAwake()
         {
             if (Instance == null) Instance = this;
             else Destroy(gameObject);
@@ -26,12 +26,12 @@ namespace Entities.Player
                 Inventory.GetItemCount(ResourceType.Money));
         }
 
-        protected override void OnUpdate()
+        private void FixedUpdate()
         {
-            if (Joystick.IsTouching)
+            if (Joystick.IsTouching && !DialogHandler.IsAnyDialogDisplayed())
             {
                 Vector3 translateDirection = new (Joystick.Horizontal(), Joystick.Vertical());
-                transform.Translate(translateDirection * (Speed * Time.deltaTime), Space.World);
+                Rigidbody.AddForce(translateDirection * (100f * Speed));
             }
         }
 

@@ -42,7 +42,7 @@ namespace Resources
             AudioSource.PlayClipAtPoint(CollectSound, transform.position);
         }
         
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.TryGetComponent(out Entity collector))
             {

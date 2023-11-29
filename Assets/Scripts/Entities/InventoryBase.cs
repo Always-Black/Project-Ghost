@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Resources;
 using UnityEngine;
 
@@ -8,8 +9,10 @@ namespace Entities
     [Serializable]
     public class InventoryBase
     {
-        public Dictionary<ResourceType, int> Items { get; } = new ();
+        private Dictionary<ResourceType, int> Items { get; } = new ();
+        public ReadOnlyDictionary<ResourceType, int> ItemsReadOnly => new (Items);
 
+        
         public InventoryBase()
         {
             foreach (ResourceType droppableType in (ResourceType[]) Enum.GetValues(typeof(ResourceType)))

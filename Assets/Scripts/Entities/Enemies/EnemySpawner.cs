@@ -21,7 +21,7 @@ namespace Entities.Enemies
         {
             for (int i = 0; i < max; i++)
             {
-                Instantiate(enemies[0], transform.position, Quaternion.identity);
+                Instantiate(enemies[i % enemies.Length], transform.position, Quaternion.identity);
             }
 
             current = max;

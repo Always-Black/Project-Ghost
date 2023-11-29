@@ -13,37 +13,45 @@ namespace Entities.Player
         public bool IsTouching { get; private set; }
 
         private float _joystickRadius;
-        private Vector2 _defaultPos;
         
-        public float Vertical() => Direction.y * Speed;
-        public float Horizontal() => Direction.x * Speed;
+        public float Vertical() => IsTouching ? Direction.y * Speed : 0.0f;
+        public float Horizontal() => IsTouching ? Direction.x * Speed : 0.0f;
 
         
         private void Start()
         {
             _joystickRadius = JoystickBackground.sizeDelta.x * 0.5f;
         }
-
-        public void OnPointerDown(BaseEventData data)
+        
+        public void OnPointerDown(BaseEventData eventData)
         {
             IsTouching = true;
-            _defaultPos = ((PointerEventData) data).position;
+            UpdateJoystickPosition((PointerEventData) eventData);
         }
 
-        public void OnDrag(BaseEventData data)
+        public void OnDrag(BaseEventData eventData)
         {
-            Vector2 touchPos = ((PointerEventData) data).position;
-            Direction = (touchPos - _defaultPos).normalized;
-            Speed = Mathf.Clamp(Vector2.Distance(_defaultPos, touchPos) / _joystickRadius, 0.0f, 1.0f);
-            JoystickHandle.anchoredPosition = Direction * _joystickRadius * Speed;
+            UpdateJoystickPosition((PointerEventData) eventData);
         }
 
-        public void OnPointerUp(BaseEventData data)
+        public void OnPointerUp(BaseEventData eventData)
         {
             IsTouching = false;
             Speed = 0.0f;
             Direction = Vector2.zero;
             JoystickHandle.anchoredPosition = Vector2.zero;
+        }
+
+        private void UpdateJoystickPosition(PointerEventData eventData)
+        {
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(JoystickBackground, 
+                eventData.position, eventData.pressEventCamera, out Vector2 touchPos);
+            touchPos = Vector2.ClampMagnitude(touchPos, _joystickRadius);
+            
+            JoystickHandle.anchoredPosition = touchPos;
+
+            Direction = touchPos.normalized;
+            Speed = touchPos.magnitude / _joystickRadius;
         }
     }
 }

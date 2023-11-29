@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Entities.Player
+namespace Entities.Player.UserInterface
 {
     public class StatusBarComponent : MonoBehaviour
     {

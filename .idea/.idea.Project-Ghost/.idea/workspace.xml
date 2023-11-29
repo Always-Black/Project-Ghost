@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c1f097-3a7e-4bfe-b5f0-6599505ed443" name="Changes" comment="Scene save update">
+    <list default="true" id="e2c1f097-3a7e-4bfe-b5f0-6599505ed443" name="Changes" comment="Path update">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Ghost/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Ghost/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Entities/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Entities/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Entities/PlayerGhost.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Entities/PlayerGhost.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Entity.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +128,7 @@
       <workItem from="1701178176804" duration="5392000" />
       <workItem from="1701198733707" duration="2020000" />
       <workItem from="1701281112999" duration="1479000" />
-      <workItem from="1701294350012" duration="5000000" />
+      <workItem from="1701294350012" duration="6800000" />
     </task>
     <task id="LOCAL-00001" summary="Major code revision of multiple systems">
       <option name="closed" value="true" />
@@ -182,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701299350130</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Path update">
+      <option name="closed" value="true" />
+      <created>1701299380017</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701299380017</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +234,8 @@
     <MESSAGE value="Path changes" />
     <MESSAGE value="Added Dialog system along with Market layout, polished joystick control, added knockback mechanic to entities, fixed some minor bugs." />
     <MESSAGE value="Scene save update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scene save update" />
+    <MESSAGE value="Path update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Path update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

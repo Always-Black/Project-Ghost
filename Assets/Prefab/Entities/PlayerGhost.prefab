@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 25
   AttackSpeed: 1
+  KnockbackForce: 50
   Health: 100
   MaxHealth: 100
   Speed: 8
@@ -120,7 +121,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2944732308939732520}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 984aef8343d24ad128a2c8ddba2b3f0b, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -172,7 +173,7 @@ Rigidbody2D:
   m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 984aef8343d24ad128a2c8ddba2b3f0b, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

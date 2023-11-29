@@ -4,42 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c1f097-3a7e-4bfe-b5f0-6599505ed443" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Image/Vases.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Image/Vases.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Entities/New Physics Material 2D.physicsMaterial2D" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Entities/New Physics Material 2D.physicsMaterial2D.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/UserInterface.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/UserInterface/Dialog.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/UserInterface/Dialog.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/UserInterface/DialogManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/UserInterface/DialogManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/UserInterface/Market.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/UserInterface/Market.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/UserInterface/StatusBarComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/UserInterface/StatusBarComponent.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Ghost/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Ghost/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Droppables/Delusion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Droppables/Delusion.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Droppables/Money.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Droppables/Money.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Entities/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Entities/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Entities/PlayerGhost.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Entities/PlayerGhost.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project-Ghost" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project-Ghost.meta" beforeDir="false" />
+    <list default="true" id="e2c1f097-3a7e-4bfe-b5f0-6599505ed443" name="Changes" comment="Scene save update">
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/EnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/EnemyAI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Enemies/EnemySpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/InventoryBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/InventoryBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/JoystickControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/JoystickControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/StatusBarComponent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Player/StatusBarComponent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Environment/LightObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/LightObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Resources/Droppable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Resources/Droppable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/demo-repository" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/demo-repository.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project-Ghost.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Project-Ghost.sln.DotSettings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +22,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9bb841a66b35430583761b6fefa9dd7420a00/76/324b7837/BoxCollider2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/leute/Unity/Projects/Project-Ghost/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/leute/Unity/Projects/Project-Ghost/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Player/JoystickControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Player/UserInterface/DialogManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/leute/Unity/Projects/Project-Ghost/Assets/Scripts/Entities/Player/Player.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/Player/UserInterface/DialogManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -155,7 +124,7 @@
       <workItem from="1701178176804" duration="5392000" />
       <workItem from="1701198733707" duration="2020000" />
       <workItem from="1701281112999" duration="1479000" />
-      <workItem from="1701294350012" duration="4586000" />
+      <workItem from="1701294350012" duration="5000000" />
     </task>
     <task id="LOCAL-00001" summary="Major code revision of multiple systems">
       <option name="closed" value="true" />
@@ -197,7 +166,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701103720890</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added Dialog system along with Market layout, polished joystick control, added knockback mechanic to entities, fixed some minor bugs.">
+      <option name="closed" value="true" />
+      <created>1701299196084</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701299196084</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Scene save update">
+      <option name="closed" value="true" />
+      <created>1701299350130</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701299350130</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +220,9 @@
     <MESSAGE value="Slight naming refactoring" />
     <MESSAGE value="Joystick control code refactoring" />
     <MESSAGE value="Path changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Path changes" />
+    <MESSAGE value="Added Dialog system along with Market layout, polished joystick control, added knockback mechanic to entities, fixed some minor bugs." />
+    <MESSAGE value="Scene save update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scene save update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

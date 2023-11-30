@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Entities;
+using Extensions;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -67,8 +68,7 @@ namespace Environment
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.TryGetComponent(out Entity entity)
-                && !_collidingEntities.Contains(entity))
+            if (other.gameObject.IsEntity(out Entity entity) && !_collidingEntities.Contains(entity))
             {
                 _collidingEntities.Add(entity);
             }
@@ -76,8 +76,7 @@ namespace Environment
     
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.gameObject.TryGetComponent(out Entity entity)
-                && _collidingEntities.Contains(entity))
+            if (other.gameObject.IsEntity(out Entity entity) && _collidingEntities.Contains(entity))
             {
                 _collidingEntities.Remove(entity);
             }

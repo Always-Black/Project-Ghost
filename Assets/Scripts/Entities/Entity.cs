@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Extensions;
 using Resources;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Entities
     public abstract class Entity : MonoBehaviour
     {
         [Header("Attack"), Min(0)] public float Damage = 1;
-        [Tooltip("Attack speed in seconds"), Min(0)] public float AttackSpeed = 1;
+        [Tooltip("Determined in seconds"), Min(0)] public float AttackSpeed = 1;
         [Tooltip("Knockback strength"), Min(0)] public float KnockbackForce = 25;
         
         [Header("Health"), Min(0)] public float Health = 1;
@@ -16,7 +17,7 @@ namespace Entities
         
         [Header("Movement"), Min(0)] public float Speed = 8.0f;
         
-        [Header("Loot")] public List<GameObject> Droppables = new ();
+        [Header("Loot")] public DroppingParameters[] Droppables;
         
         public Rigidbody2D Rigidbody { get; private set; }
         
@@ -90,12 +91,9 @@ namespace Entities
         
         protected virtual void HandleDeath()
         {
-            foreach (GameObject droppable in Droppables)
+            foreach (DroppingParameters parameter in Droppables)
             {
-                if (droppable.TryGetComponent(out Droppable dr))
-                {
-                    dr.Drop(transform.position);
-                }
+                parameter.Drop(transform.position);
             }
             
             Destroy(gameObject);
@@ -128,7 +126,7 @@ namespace Entities
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.TryGetComponent(out Entity entity) && !_collidingEntities.Contains(entity))
+            if (other.gameObject.IsEntity(out Entity entity) && !_collidingEntities.Contains(entity))
             {
                 _collidingEntities.Add(entity);
                 if(_collidingEntities.Count == 1) AttackEntity(entity);
@@ -137,7 +135,7 @@ namespace Entities
 
         private void OnCollisionExit2D(Collision2D other)
         {
-            if (other.gameObject.TryGetComponent(out Entity entity) && _collidingEntities.Contains(entity))
+            if (other.gameObject.IsEntity(out Entity entity) && _collidingEntities.Contains(entity))
             {
                 _collidingEntities.Remove(entity);
             }

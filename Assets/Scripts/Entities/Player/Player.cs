@@ -1,6 +1,7 @@
-using System;
+using System.Globalization;
 using Entities.Player.UserInterface;
 using Resources;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,19 +14,19 @@ namespace Entities.Player
         public DialogManager DialogHandler;
         public InventoryBase Inventory = new ();
         
-        [SerializeField] private StatusBarComponent StatusBar;
+        [SerializeField] private UIStatistics UIStatistics;
         [SerializeField] private JoystickControl Joystick;
         
-
+        
         protected override void OnAwake()
         {
             if (Instance == null) Instance = this;
             else Destroy(gameObject);
             
-            StatusBar.Setup(Health, Inventory.GetItemCount(ResourceType.Delusion),
+            UIStatistics.Setup(Health, Inventory.GetItemCount(ResourceType.Delusion),
                 Inventory.GetItemCount(ResourceType.Money));
         }
-
+        
         private void FixedUpdate()
         {
             if (Joystick.IsTouching && !DialogHandler.IsAnyDialogDisplayed())
@@ -39,13 +40,13 @@ namespace Entities.Player
         {
             base.OnDropCollected(droppable);
             Inventory.AddItem(droppable.Type);
-            StatusBar.SetResource(droppable.Type, Inventory.GetItemCount(droppable.Type));
+            UIStatistics.SetResource(droppable.Type, Inventory.GetItemCount(droppable.Type));
         }
 
         public override void SetHealth(float health)
         {
             base.SetHealth(health);
-            StatusBar.SetHealth(Health);
+            UIStatistics.SetHealth(Health);
         }
 
         protected override void HandleDeath()

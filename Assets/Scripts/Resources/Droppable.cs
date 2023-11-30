@@ -1,13 +1,16 @@
+using System;
 using Entities;
+using Entities.Player;
+using Extensions;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Resources
 {
-    public class Droppable : MonoBehaviour
+    [Serializable]
+    public class DroppingParameters
     {
-        [SerializeField] private AudioClip CollectSound;
-        
-        public ResourceType Type;
+        public Droppable DroppablePrefab;
         
         [Space(10)]
         public Vector2 DistributeRange = Vector2.one;
@@ -17,15 +20,27 @@ namespace Resources
         [Range(0, 100)] public float GlobalDroppingChance = 100.0f;
         [Range(0, 100)] public float IndividualDroppingChance = 100.0f;
         
-
         public void Drop(Vector2 position)
         {
-            if (Random.Range(0.0f, 100.0f) > GlobalDroppingChance) return;
+            DroppablePrefab.Drop(position, GlobalDroppingChance, IndividualDroppingChance, DroppingAmount,
+                DistributeRange);
+        }
+    }
+    
+    public class Droppable : MonoBehaviour
+    {
+        public ResourceType Type;
+        [SerializeField] private AudioClip CollectSound;
+
+        public void Drop(Vector2 position, float globalDroppingChance, float individualDroppingChance,
+            int droppingAmount, Vector2 distributeRange)
+        {
+            if (Random.Range(0.0f, 100.0f) > globalDroppingChance) return;
             
-            for (int i = 0; i < DroppingAmount; i++)
+            for (int i = 0; i < droppingAmount; i++)
             {
-                if (Random.Range(0.0f, 100.0f) > IndividualDroppingChance) continue;
-                Vector2 randomPosition = Random.insideUnitCircle * DistributeRange;
+                if (Random.Range(0.0f, 100.0f) > individualDroppingChance) continue;
+                Vector2 randomPosition = Random.insideUnitCircle * distributeRange;
                 Instantiate(gameObject, position + randomPosition, Quaternion.identity);
             }
         }
@@ -44,9 +59,9 @@ namespace Resources
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.TryGetComponent(out Entity collector))
+            if(other.gameObject.IsPlayer(out Player player))
             {
-                Collect(collector);
+                Collect(player);
             }
         }
     }

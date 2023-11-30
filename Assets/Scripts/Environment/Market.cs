@@ -1,13 +1,16 @@
+using Entities.Player;
+using Entities.Player.UserInterface;
+using Extensions;
 using UnityEngine;
 
-namespace Entities.Player.UserInterface
+namespace Environment
 {
     [RequireComponent(typeof(Collider2D))]
     public class Market : Dialog
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.TryGetComponent(out Player player))
+            if (other.gameObject.IsPlayer(out Player player))
             {
                 player.DialogHandler.DisplayNewDialog(this);
             }

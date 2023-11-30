@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Entities.Player.UserInterface
 {
-    public class StatusBarComponent : MonoBehaviour
+    public class UIStatistics : MonoBehaviour
     {
         [SerializeField] private Image HealthBar;
         [SerializeField] private Image DelusionBar;
